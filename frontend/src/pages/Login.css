@@ -1,0 +1,166 @@
+.login-page {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: center;
+  height: 100vh;
+  background: rgb(0, 0, 0);
+  background: -moz-linear-gradient(69deg, rgba(0, 0, 0, 1) 83%, rgba(8, 15, 57, 1) 100%);
+  background: -webkit-linear-gradient(69deg, rgba(0, 0, 0, 1) 83%, rgba(8, 15, 57, 1) 100%);
+  background: linear-gradient(69deg, rgba(0, 0, 0, 1) 83%, rgba(8, 15, 57, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000", endColorstr="#080f39", GradientType=1);
+}
+
+/* Content container for layout */
+.content-container {
+  display: flex;
+  width: 90%;
+  max-width: 1200px;
+  height: 80%;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0px 0px 15px 3px #fb8cda;
+}
+
+/* Left Section: Logo Container */
+.logo-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.logo {
+  max-width: 60%;
+  height: auto;
+  align-items: center;
+  margin: 0 0 0 0;
+}
+
+/* Right Section: Login Container */
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 30px;
+  border-radius: 10px;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #ff8ccf;
+}
+
+p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: #ccc;
+}
+
+.login-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.login-btn {
+  padding: 12px 25px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  background-color: #f53dbe;
+  color: #fff;
+}
+
+.login-btn:hover {
+  background-color: #ffb9ea;
+  color: #000;
+}
+
+.login-btn:active {
+  transform: scale(0.95);
+}
+
+.feedback {
+  margin-top: 15px;
+  font-size: 1rem;
+  color: #ff8ccf;
+}
+
+footer {
+  text-align: center;
+  width: 100%;
+  font-size: 0.8rem;
+  color: #aaa;
+  padding: 10px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .content-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .logo-container {
+    height: 40%;
+    padding: 15px;
+  }
+
+  main {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo-container {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  .login-container {
+    padding: 20px;
+  }
+
+  .login-btn {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-container {
+    height: 30%;
+  }
+
+  .login-container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 1.4rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
+}

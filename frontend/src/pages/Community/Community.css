@@ -1,0 +1,82 @@
+.community-list-container {
+    padding: 20px;
+    text-align: center;
+    background-color: #000; /* Black background */
+    color: #fff; /* White text */
+  }
+  
+  .loading {
+    font-size: 20px;
+    font-weight: bold;
+    color: #FF6584; /* Highlight color */
+  }
+  
+  .community-tiles {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    justify-items: center;
+  }
+  
+  .community-tile {
+    background-color: #1a1a1a; /* Dark tile background */
+    border: 1px solid #333; /* Subtle border */
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%;
+    max-width: 250px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .community-tile:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(255, 101, 132, 0.6); /* Pinkish shadow */
+  }
+  
+  .community-icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 2px solid #FF6584; /* Icon border with highlight color */
+  }
+  
+  .community-info h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+    color: #FF6584; /* Title in highlight color */
+  }
+  
+  .community-info p {
+    font-size: 14px;
+    color: #ccc; /* Light grey for descriptions */
+  }
+  
+  .category {
+    font-size: 12px;
+    color: #FF6584;
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+  }
+  
+  .community-footer {
+    margin-top: 15px;
+    font-size: 12px;
+    color: #888; /* Grey for footer text */
+  }
+  
+  .created-at {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .creator-id {
+    font-weight: bold;
+    color: #fff; /* White text */
+  }
+  

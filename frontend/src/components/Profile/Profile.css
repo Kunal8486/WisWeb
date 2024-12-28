@@ -1,0 +1,73 @@
+/* Profile page container */
+.profile-container {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+Typography{
+    color: black !important;
+}
+
+/* Paper component styling */
+.profile-paper {
+    padding: 40px;
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    background-color: #c9c9c9 !important;
+}
+
+/* Avatar and Edit button section */
+.avatar-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 0 0 30%;
+}
+
+.profile-avatar {
+    width: 150px !important;
+    height: 150px !important;
+    margin-bottom: 20px;
+    border: 2px solid #3f51b5;
+}
+
+.edit-button {
+    margin-top: 20px;
+    background-color: #3f51b5;
+    color: #ffffff;
+}
+
+.edit-button:hover {
+    background-color: #303f9f;
+}
+
+/* Profile information section */
+.profile-info {
+    flex: 1;
+}
+
+/* Profile text fields */
+.profile-textfield {
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+/* Profile details section */
+.profile-details {
+    margin-bottom: 30px;
+}
+
+/* Typography adjustments */
+.profile-info .MuiTypography-root {
+    margin-bottom: 15px;
+}
+
+.profile-info .MuiTypography-h6 {
+    margin-top: 30px;
+    color: #3f51b5;
+}

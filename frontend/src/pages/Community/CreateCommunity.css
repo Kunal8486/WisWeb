@@ -1,0 +1,150 @@
+/* CreateCommunity.css */
+
+/* Body and container styling */
+.create-community-container {
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .form-title {
+    color: #FF6584;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  }
+  
+  /* Form styling */
+  .create-community-form {
+    background-color: #1F1F1F;
+    padding: 40px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 4px 10px rgba(223, 39, 113, 0.4);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .create-community-form:hover {
+    box-shadow: 0 4px 10px rgba(223, 39, 113, 0.4);
+    transform: scale(1.02);
+  }
+  
+  .create-community-form div {
+    margin-bottom: 25px;
+  }
+  
+  /* Input and textarea fields */
+  .input-field,
+  .textarea-field,
+  .file-input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #444;
+    border-radius: 8px;
+    background-color: #2E2E2E;
+    color: white;
+    font-size: 1rem;
+    margin-top: 8px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .textarea-field {
+    height: 120px;
+    resize: none;
+  }
+  
+  .input-field:focus,
+  .textarea-field:focus,
+  .file-input:focus {
+    border-color: #FF6584;
+    box-shadow: 0 0 10px #FF6584;
+    outline: none;
+  }
+  
+  /* Labels */
+  label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #FF6584;
+    margin-bottom: 6px;
+    display: block;
+  }
+  
+  /* Submit button */
+  .submit-button {
+    width: 100%;
+    padding: 14px;
+    background-color: #FF6584;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .submit-button:hover {
+    background-color: #e14f74;
+    transform: translateY(-2px);
+  }
+  
+  .submit-button:active {
+    transform: translateY(2px);
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .create-community-form {
+      padding: 30px;
+      width: 90%;
+    }
+  
+    .form-title {
+      font-size: 2rem;
+    }
+  
+    .submit-button {
+      font-size: 1.1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .form-title {
+      font-size: 1.5rem;
+    }
+  
+    .input-field,
+    .textarea-field,
+    .file-input {
+      padding: 10px;
+    }
+  
+    .submit-button {
+      padding: 12px;
+      font-size: 1rem;
+    }
+  }
+  
+
+  
+.image-preview {
+    margin-top: 15px;
+    text-align: center;
+  }
+  
+  .preview-image {
+    height: 100px;
+    width: 100px;
+    object-fit: cover; /* Ensures the image is cropped and covers the 1024x1024 box */
+    border-radius: 50%;
+  }

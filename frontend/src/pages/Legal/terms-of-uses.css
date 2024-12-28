@@ -1,0 +1,127 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container */
+.terms-container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+.terms-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.terms-header h1 {
+    font-size: 2.5em;
+    color: #444;
+}
+
+/* Content */
+.terms-content section {
+    margin-bottom: 20px;
+}
+
+.terms-content h2 {
+    font-size: 1.8em;
+    color: #555;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.terms-content p, .terms-content ul {
+    font-size: 1em;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.terms-content ul {
+    padding-left: 20px;
+    list-style-type: disc;
+}
+
+.terms-content a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.terms-content a:hover {
+    text-decoration: underline;
+}
+
+/* Buttons (if any links are styled as buttons) */
+button, .btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    text-align: center;
+}
+
+button:hover, .btn:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Design */
+
+/* For tablets */
+@media (max-width: 768px) {
+    .terms-header h1 {
+        font-size: 2em;
+    }
+
+    .terms-content h2 {
+        font-size: 1.5em;
+    }
+
+    .terms-content p, .terms-content ul {
+        font-size: 0.95em;
+    }
+
+    .terms-container {
+        padding: 15px;
+        margin: 15px;
+    }
+}
+
+/* For mobile devices */
+@media (max-width: 480px) {
+    .terms-header h1 {
+        font-size: 1.8em;
+    }
+
+    .terms-content h2 {
+        font-size: 1.3em;
+    }
+
+    .terms-content p, .terms-content ul {
+        font-size: 0.9em;
+    }
+
+    .terms-container {
+        padding: 10px;
+        margin: 10px;
+    }
+}
