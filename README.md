@@ -82,5 +82,4 @@ Open the frontend in your browser: http://localhost:3001
 The backend will run on http://localhost:3000
 
 
-## This code provides instructions to run both the backend and frontend servers and to access the application locally via the specified ports. Let me know if you need anything else!
 
