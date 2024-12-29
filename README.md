@@ -1,8 +1,8 @@
-# WizWeb
+# WisWeb
 
 ## Overview
 
-**WizWeb** is a decentralized platform inspired by Reddit and GitHub, allowing users to create, share, and manage content while earning tokens based on performance. The platform leverages blockchain technologies like IPFS for file storage and MetaMask for wallet integration.
+**WisWeb** is a decentralized platform inspired by Reddit and GitHub, allowing users to create, share, and manage content while earning tokens based on performance. The platform leverages blockchain technologies like IPFS for file storage and MetaMask for wallet integration.
 
 ---
 
@@ -29,8 +29,8 @@
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/yourusername/WizWeb.git
-cd WizWeb
+git clone https://github.com/yourusername/WisWeb.git
+cd WisWeb
 ```
 
 ### 2. Prerequisites
