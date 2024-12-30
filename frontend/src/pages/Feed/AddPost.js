@@ -41,7 +41,7 @@ const AddPost = () => {
       formData.append("media", media[i]);
     }
 
-    fetch("http://localhost:3000/posts", {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/posts`, {
       method: "POST",
       body: formData,
     })

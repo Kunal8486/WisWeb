@@ -86,7 +86,7 @@ const CreateCommunity = () => {
     formData.append('createdAt', new Date().toISOString());
 
     try {
-      const response = await axios.post('http://localhost:3000/communities', formData, {
+      const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/communities`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       showModalMessage('Community created successfully', true);

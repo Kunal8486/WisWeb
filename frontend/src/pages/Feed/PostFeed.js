@@ -7,7 +7,7 @@ const PostFeed = () => {
 
   useEffect(() => {
     // Fetch posts from the backend
-    fetch("http://localhost:3000/posts")
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/posts`)
       .then((response) => response.json())
       .then((data) => {
         setPosts(data);
@@ -23,7 +23,7 @@ const PostFeed = () => {
   };
 
   const handleUpVote = (postId, type) => {
-    fetch(`http://localhost:3000/posts/${postId}/${type}`, {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/posts/${postId}/${type}`, {
       method: "PUT",
     })
       .then((response) => response.json())
@@ -40,7 +40,7 @@ const PostFeed = () => {
   };
 
   const handleDownVote = (postId, type) => {
-    fetch(`http://localhost:3000/posts/${postId}/${type}`, {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/posts/${postId}/${type}`, {
       method: "PUT",
     })
       .then((response) => response.json())
@@ -61,7 +61,7 @@ const PostFeed = () => {
   };
 
   const handleComment = (postId, username, text) => {
-    fetch(`http://localhost:3000/posts/${postId}/comment`, {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/posts/${postId}/comment`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -163,13 +163,13 @@ const MediaSlider = ({ media }) => {
         media[currentIndex].endsWith(".webm") ||
         media[currentIndex].endsWith(".ogg") ? (
         <video
-          src={`http://localhost:3000${media[currentIndex]}`}
+          src={`${process.env.REACT_APP_BACKEND_URL}${media[currentIndex]}`}
           controls
           className="slider-media"
         />
       ) : (
         <img
-          src={`http://localhost:3000${media[currentIndex]}`}
+          src={`${process.env.REACT_APP_BACKEND_URL}${media[currentIndex]}`}
           alt="Post Media"
           className="slider-media"
         />

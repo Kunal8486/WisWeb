@@ -9,7 +9,7 @@ const CommunityList = () => {
   useEffect(() => {
     const fetchCommunities = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/communities');
+        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/communities`);
         setCommunities(response.data);
       } catch (error) {
         console.error('Error fetching communities:', error);
@@ -30,7 +30,7 @@ const CommunityList = () => {
           {communities.map((community) => (
             <div key={community._id} className="community-tile">
               <img
-                src={`http://localhost:3000${community.icon}`} // Use full path to the image
+                src={`${process.env.REACT_APP_BACKEND_URL}${community.icon}`} // Use full path to the image
                 alt={community.name}
                 className="community-icon"
               />
