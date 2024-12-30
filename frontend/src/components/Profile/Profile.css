@@ -1,73 +1,230 @@
-/* Profile page container */
+/* Profile Page Layout */
 .profile-container {
-    padding-top: 30px;
-    padding-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+    align-items: center;
+    background: rgb(0, 0, 0);
+    background: -moz-linear-gradient(69deg, rgba(0, 0, 0, 1) 83%, rgba(8, 15, 57, 1) 100%);
+    background: -webkit-linear-gradient(69deg, rgba(0, 0, 0, 1) 83%, rgba(8, 15, 57, 1) 100%);
+    background: linear-gradient(69deg, rgba(0, 0, 0, 1) 83%, rgba(8, 15, 57, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000", endColorstr="#080f39", GradientType=1);
+    height: 100vh;
+  }
+  
+  /* Profile Card */
+  .profile-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
+    width: 90%;
+    max-width: 800px;
+    padding: 30px;
+    box-shadow: 0px 0px 20px 4px #fb8cda;
+  }
+  
+  /* Profile Header */
+  .profile-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .profile-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #fb8cda;
+  }
+  
+  .profile-header h2 {
+    font-size: 2rem;
+    margin-top: 10px;
+    color: #fff;
+  }
+  
+  .wallet-address {
+    color: #ccc;
+    font-size: 1rem;
+    margin-top: 5px;
+  }
+  
+  /* Profile Body */
+  .profile-body {
+    width: 100%;
+  }
+  
+  .info-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+  }
+  
+  .info-icon {
+    font-size: 1.5rem;
+    color: #fb8cda;
+    margin-right: 10px;
+  }
+  
+  .info-row strong {
+    color: #fff;
+    font-size: 1.2rem;
+  }
+  
+  .info-row span {
+    color: #ccc;
+    font-size: 1rem;
+    text-align: right; /* Aligns text to the right */
+    display: inline-block; /* Ensures alignment works */
+    width: 100%; /* Span takes full width for alignment */
+    margin-right: 10%;
+}
+
+  
+  /* Loading State */
+  .loading-container {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-Typography{
-    color: black !important;
-}
-
-/* Paper component styling */
-.profile-paper {
-    padding: 40px;
-    display: flex;
-    flex-direction: row;
-    gap: 40px;
-    box-sizing: border-box;
-    border-radius: 10px;
-    background-color: #c9c9c9 !important;
-}
-
-/* Avatar and Edit button section */
-.avatar-section {
+    height: 100vh;
+    color: #fff;
+    font-size: 1.2rem;
+  }
+  
+  .spinner {
+    border: 5px solid #fff;
+    border-top: 5px solid #fb8cda;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* Error Message */
+  .error-message {
+    color: #f53dbe;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .profile-card {
+      width: 80%;
+      padding: 20px;
+    }
+  
+    .profile-avatar {
+      width: 100px;
+      height: 100px;
+    }
+  
+    .profile-header h2 {
+      font-size: 1.8rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .profile-card {
+      padding: 15px;
+    }
+  
+    .profile-avatar {
+      width: 80px;
+      height: 80px;
+    }
+  
+    .profile-header h2 {
+      font-size: 1.6rem;
+    }
+  
+    .info-row {
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .profile-card {
+      width: 90%;
+      padding: 15px;
+    }
+  
+    .profile-avatar {
+      width: 70px;
+      height: 70px;
+    }
+  
+    .profile-header h2 {
+      font-size: 1.4rem;
+    }
+  
+    .info-row {
+      font-size: 0.8rem;
+    }
+  }
+  /* Add this to your Profile.css file */
+.profile-header {
+    position: relative;
+    text-align: center;
+  }
+  
+  .edit-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    color: #ff8ccf;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .edit-icon:hover {
+    color: #ffb9ea;
+  }
+  
+  .edit-form {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    flex: 0 0 30%;
-}
-
-.profile-avatar {
-    width: 150px !important;
-    height: 150px !important;
-    margin-bottom: 20px;
-    border: 2px solid #3f51b5;
-}
-
-.edit-button {
-    margin-top: 20px;
-    background-color: #3f51b5;
-    color: #ffffff;
-}
-
-.edit-button:hover {
-    background-color: #303f9f;
-}
-
-/* Profile information section */
-.profile-info {
-    flex: 1;
-}
-
-/* Profile text fields */
-.profile-textfield {
-    margin-top: 10px;
-    margin-bottom: 15px;
-}
-
-/* Profile details section */
-.profile-details {
-    margin-bottom: 30px;
-}
-
-/* Typography adjustments */
-.profile-info .MuiTypography-root {
-    margin-bottom: 15px;
-}
-
-.profile-info .MuiTypography-h6 {
-    margin-top: 30px;
-    color: #3f51b5;
-}
+    gap: 15px;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+  }
+  
+  .edit-form input,
+  .edit-form textarea {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .edit-buttons {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .edit-buttons button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .edit-buttons button:hover {
+    background-color: #ffb9ea;
+  }
+  

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import "./Login.css"; // CSS for styling
 
 const LoginPage = () => {
@@ -18,36 +19,49 @@ const LoginPage = () => {
     }
   }, [isAndroid, isiOS]);
 
-  // Handle MetaMask login
   const handleMetaMaskLogin = async () => {
     try {
-      const dappUrl = "https://your-dapp-url.com"; // Replace with your dApp URL
+      const dappUrl = "https://wisweb.in"; // Replace with your dApp URL
       const metaMaskDeepLink = `https://metamask.app.link/dapp/${dappUrl}`;
-
-      // If on mobile, show QR code or redirect to MetaMask app
+  
+      // Detect mobile device and redirect to MetaMask app if necessary
       if (isAndroid || isiOS) {
-        // Redirect to MetaMask app via deep link
         window.location.href = metaMaskDeepLink;
         return;
       }
-
-      // For desktop users: Check if MetaMask is installed
+  
+      // Check if MetaMask is installed
       if (!window.ethereum) {
         setFeedback("MetaMask is not installed. Please install it to continue.");
         return;
       }
-
-      // Request wallet connection from MetaMask
-      const accounts = await window.ethereum.request({
-        method: "eth_requestAccounts",
-      });
-
+  
+      // Request wallet connection
+      const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
+  
       if (accounts.length > 0) {
         const walletAddress = accounts[0];
         setFeedback(`Logged in with address: ${walletAddress}`);
         sessionStorage.setItem("userRole", "authenticated");
         sessionStorage.setItem("walletAddress", walletAddress);
-        navigate("/"); // Redirect to your app's main page
+  
+        // Send wallet address to backend for user creation or retrieval
+        try {
+          const response = await axios.post("http://localhost:3000/users/create-or-get", {
+            metaMaskWalletAddress: walletAddress,
+          });
+  
+          // Handle response from backend
+          if (response.status === 200 || response.status === 201) {
+            const user = response.data;
+            console.log("User data:", user);
+            navigate("/"); // Redirect to your app's main page
+          } else {
+            setFeedback("Failed to create or retrieve user. Please try again.");
+          }
+        } catch (apiError) {
+          setFeedback(`Error creating or fetching user: ${apiError.message}`);
+        }
       } else {
         setFeedback("No wallet address found. Please try again.");
       }
