@@ -9,7 +9,7 @@ import Profile from './components/Profile/Profile';
 
 import CreateCommunity from './pages/Community/CreateCommunity';
 import Community from './pages/Community/Community';
-import Login from './pages/Login';
+import Login from './pages/Login/Login';
 import About from './pages/About';
 import Help from './pages/Help';
 import Search from './components/Search/Search';

@@ -164,3 +164,13 @@ footer {
     font-size: 0.9rem;
   }
 }
+
+
+.qr-code-container {
+  margin-top: 20px;
+}
+
+.metamask-qr {
+  width: 200px;
+  margin-top: 10px;
+} 
