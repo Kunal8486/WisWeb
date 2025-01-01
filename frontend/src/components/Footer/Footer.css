@@ -1,0 +1,153 @@
+html {
+    scroll-behavior: smooth;
+}
+
+/* General Styling */
+.footer {
+    display: flex;
+    flex-direction: column;
+    background-color: #121212;
+    color: #ffffff;
+    padding: 40px 20px;
+    font-family: "Arial", sans-serif;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer Logo Section */
+.footer-logo-section {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.footer-logo {
+    width: 180px;
+    margin: 0 auto;
+    filter: brightness(1.2);
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.footer-logo:hover {
+    transform: scale(1.1);
+    filter: brightness(1.5);
+}
+
+/* Footer Links Section */
+.footer-links-section {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 180px;
+    margin: 10px;
+    text-align: center;
+}
+
+.footer-column h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #e0e0e0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.footer-link {
+    display: block;
+    font-size: 14px;
+    color: #b0b0b0;
+    text-decoration: none;
+    margin-bottom: 10px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+a.footer-link.active {
+    background-color: transparent;
+}
+
+.footer-link:hover {
+    color: #ffffff;
+    transform: translateX(5px);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 14px;
+    color: #8d8d8d;
+    border-top: 1px solid #2a2a2a;
+    padding-top: 20px;
+    line-height: 1.5;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+/* Responsive Design */
+
+/* For Medium Devices (Tablets) */
+@media (max-width: 768px) {
+    .footer-links-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-column {
+        margin: 15px 0;
+    }
+
+    .footer-logo {
+        width: 140px;
+    }
+
+    .footer-column h4 {
+        font-size: 16px;
+    }
+
+    .footer-link {
+        font-size: 13px;
+    }
+
+    .footer-bottom {
+        font-size: 13px;
+    }
+}
+
+/* For Small Devices (Mobile) */
+@media (max-width: 480px) {
+    .footer-links-section {
+        text-align: center;
+    }
+
+    .footer-column {
+        margin: 10px 0;
+    }
+
+    .footer-column h4 {
+        font-size: 14px;
+    }
+
+    .footer-link {
+        font-size: 12px;
+    }
+
+    .footer-bottom {
+        font-size: 12px;
+    }
+
+    .footer-logo {
+        width: 100px;
+    }
+}
+
+/* Hover Effects for Footer Links */
+.footer-column h4:hover {
+    color: #ffffff;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
