@@ -1,61 +1,76 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import "./Login.css"; // CSS for styling
+import "./Login.css";
 
 const LoginPage = () => {
   const [feedback, setFeedback] = useState("");
   const [qrCodeVisible, setQrCodeVisible] = useState(false);
+  const [isMetaMaskConnected, setIsMetaMaskConnected] = useState(false);
   const navigate = useNavigate();
 
-  // Detect if the user is on Android or iOS
+  // Platform detection
   const isAndroid = /Android/i.test(navigator.userAgent);
   const isiOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+  const isMetaMaskBrowser = typeof window.ethereum !== "undefined" && window.ethereum.isMetaMask;
 
-  // Effect to check for mobile platform and show QR code
   useEffect(() => {
-    if (isAndroid || isiOS) {
-      setQrCodeVisible(true); // Show the QR code image by default on mobile
+    handleQrCodeVisibility();
+  }, []);
+
+  const handleQrCodeVisibility = () => {
+    // QR Code is shown only for mobile users not using MetaMask
+    if ((isAndroid || isiOS) && !isMetaMaskBrowser) {
+      setQrCodeVisible(true);
+    } else {
+      setQrCodeVisible(false);
     }
-  }, [isAndroid, isiOS]);
+  };
 
   const handleMetaMaskLogin = async () => {
     try {
-      const dappUrl = "https://wisweb.in"; // Replace with your dApp URL
+      // Deep link to MetaMask if on mobile and not using MetaMask browser
+      const dappUrl = "https://wisweb.in";
       const metaMaskDeepLink = `https://metamask.app.link/dapp/${dappUrl}`;
-  
-      // Detect mobile device and redirect to MetaMask app if necessary
-      if (isAndroid || isiOS) {
+
+      if ((isAndroid || isiOS) && !isMetaMaskBrowser) {
         window.location.href = metaMaskDeepLink;
         return;
       }
-  
-      // Check if MetaMask is installed
+
+      // Check for MetaMask installation
       if (!window.ethereum) {
         setFeedback("MetaMask is not installed. Please install it to continue.");
         return;
       }
-  
+
+      // Prevent redundant login prompts
+      if (isMetaMaskConnected) {
+        setFeedback("You are already connected.");
+        return;
+      }
+
       // Request wallet connection
       const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
-  
+
       if (accounts.length > 0) {
         const walletAddress = accounts[0];
         setFeedback(`Logged in with address: ${walletAddress}`);
         sessionStorage.setItem("userRole", "authenticated");
         sessionStorage.setItem("walletAddress", walletAddress);
-  
-        // Send wallet address to backend for user creation or retrieval
+        setIsMetaMaskConnected(true);
+
+        // Backend call to create or retrieve user
         try {
-          const response = await axios.post("http://localhost:3000/users/create-or-get", {
-            metaMaskWalletAddress: walletAddress,
-          });
-  
-          // Handle response from backend
+          const response = await axios.post(
+            `${process.env.REACT_APP_BACKEND_URL}/users/create-or-get`,
+            { metaMaskWalletAddress: walletAddress }
+          );
+
           if (response.status === 200 || response.status === 201) {
             const user = response.data;
             console.log("User data:", user);
-            navigate("/"); // Redirect to your app's main page
+            navigate("/"); // Navigate to the home page or dashboard
           } else {
             setFeedback("Failed to create or retrieve user. Please try again.");
           }
@@ -70,7 +85,6 @@ const LoginPage = () => {
     }
   };
 
-  // Handle guest login
   const handleGuestLogin = () => {
     setFeedback("Proceeding as Guest...");
     sessionStorage.setItem("userRole", "guest");
@@ -94,8 +108,9 @@ const LoginPage = () => {
                 id="metamask-login"
                 className="login-btn"
                 onClick={handleMetaMaskLogin}
+                disabled={isMetaMaskConnected} // Disable button if already connected
               >
-                🔒 Login with MetaMask
+                🔒 {isMetaMaskConnected ? "Connected to MetaMask" : "Login with MetaMask"}
               </button>
               <button
                 id="guest-login"
@@ -111,7 +126,11 @@ const LoginPage = () => {
             {qrCodeVisible && (
               <div className="qr-code-container">
                 <p>Scan this QR code with the MetaMask app:</p>
-                <img src="assets/metamask_login.png" alt="MetaMask QR code" className="metamask-qr" />
+                <img
+                  src="assets/metamask_login.png"
+                  alt="MetaMask QR code"
+                  className="metamask-qr"
+                />
               </div>
             )}
           </div>
