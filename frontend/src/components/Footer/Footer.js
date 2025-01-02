@@ -55,7 +55,7 @@ const Footer = () => {
             <div className="footer-links-section">
                 <div className="footer-column">
                     <div className="footer-logo-section">
-                        <img src="/assets/logo.png" alt="WizWeb Logo" className="footer-logo" />
+                        <img src="/assets/logopng.png" alt="WizWeb Logo" className="footer-logo" />
                     </div>
                 </div>
                 {footerLinks.map((section, idx) => (
